@@ -1,0 +1,34 @@
+<% if(db_rows_array.length>0) { %>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>mobile</th>
+            <th>Action</th>
+        </tr>
+        <% for(var i=0; i<db_rows_array.length; i++) { %>
+            <tr>
+                <td>
+                    <%= db_rows_array[i].user_id %>
+                </td>
+                <td>
+                    <%= db_rows_array[i].user_name %>
+                </td>
+                <td>
+                    <%= db_rows_array[i].user_email %>
+                </td>
+                <td>
+                    <%= db_rows_array[i].user_mobile %>
+                </td>
+                <td>
+                    <a href="/edit/<%= db_rows_array[i].user_id %>">Edit</a> |
+                    <a href="/delete/<%= db_rows_array[i].user_id %>">Delete</a>|
+                    <a href="/show/<%= db_rows_array[i].user_id %>">Show</a>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+    <% } else { %>
+        No record detail
+        <% } %>
